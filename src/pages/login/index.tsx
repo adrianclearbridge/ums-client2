@@ -5,20 +5,22 @@ export const Login = () => {
     <AuthPage
       type="login"
       renderContent={(content) => (
-        <div>
-          <p
+        <div
+          style={{
+            display: 'flex',  justifyContent:'center', alignItems:'center', height: '100vh'
+          }}
+        >
+          <div
             style={{
-              padding: 10,
-              color: "#004085",
-              backgroundColor: "#cce5ff",
-              borderColor: "#b8daff",
-              textAlign: "center",
+              borderWidth: 1,
+              borderColor: 'grey',
+              borderRadius: 15,
+              width: 400,
             }}
           >
-            email: demo@refine.dev
-            <br /> password: demodemo
-          </p>
-          {content}
+
+            {content}
+          </div>
         </div>
       )}
     />

@@ -56,7 +56,7 @@ function App() {
   return (
     <BrowserRouter>
         <Refine
-          dataProvider={dataProvider("https://api.fake-rest.refine.dev")}
+          dataProvider={dataProvider("http://localhost:5169")}
           routerProvider={routerBindings}
           authProvider={authProvider}
           resources={[

@@ -1,11 +1,22 @@
 import type { AuthProvider } from "@refinedev/core";
+import axios from "axios";
 
-export const TOKEN_KEY = "user-tokan";
+export const TOKEN_KEY = "ums-token";
 
 export const authProvider: AuthProvider = {
-  login: async ({ username, email, password }) => {
-    if ((username || email) && password) {
-      localStorage.setItem(TOKEN_KEY, username);
+  login: async ({ email, password }) => {
+    if (email && password) {
+        const {data} = await axios.post('http://localhost:5169/login', {
+          username: email,
+          password,
+        }, {
+          headers: {
+            "Content-Type": "application/json",
+          }
+      })
+      console.log(data)
+
+      localStorage.setItem(TOKEN_KEY, data);
       return {
         success: true,
         redirectTo: "/",

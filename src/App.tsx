@@ -1,5 +1,4 @@
 import { Authenticated, ErrorComponent, Refine } from "@refinedev/core";
-import { RefineKbar, RefineKbarProvider } from "@refinedev/kbar";
 
 import routerBindings, {
   CatchAllNavigate,
@@ -56,60 +55,110 @@ function App() {
   return (
     <BrowserRouter>
         <Refine
-          dataProvider={dataProvider("http://localhost:5169")}
+          dataProvider={dataProvider("http://localhost:5169/api")}
           routerProvider={routerBindings}
           authProvider={authProvider}
           resources={[
             {
-              name: "identity_providers",
-              list: "/identity-providers",
-              create: "/identity-providers/create",
-              edit: "/identity-providers/edit/:id",
-              show: "/identity-providers/show/:id",
-              meta: {
-                canDelete: true,
-              },
-            },
-            {
-              name: "users",
-              list: "/users",
-              create: "/users/create",
-              edit: "/users/edit/:id",
-              show: "/users/show/:id",
-              meta: {
-                canDelete: true,
-              },
-            },
-            {
-              name: "settings",
-              list: "/settings",
-              create: "/settings/create",
-              edit: "/settings/edit/:id",
-              show: "/settings/show/:id",
-              meta: {
-                canDelete: true,
-              },
-            },
-            {
-              name: "permissions",
-              list: "/permissions",
-              create: "/permissions/create",
-              edit: "/permissions/edit/:id",
-              show: "/permissions/show/:id",
-              meta: {
-                canDelete: true,
-              },
-            },
-            {
-              name: "applications",
+              name: "Applications",
               list: "/applications",
               create: "/applications/create",
               edit: "/applications/edit/:id",
               show: "/applications/show/:id",
               meta: {
+                canDelete: false,
+              },
+            },
+            {
+              name: "EntityAccess",
+              list: "/entityAccess",
+              create: "/entityAccess/create",
+              edit: "/entityAccess/edit/:id",
+              show: "/entityAccess/show/:id",
+              meta: {
+                canDelete: false,
+              },
+            },
+            {
+              name: "EntityReference",
+              list: "/EntityReference",
+              create: "/EntityReference/create",
+              edit: "/EntityReference/edit/:id",
+              show: "/EntityReference/show/:id",
+              meta: {
+                canDelete: false,
+              },
+            },
+            {
+              name: "IdentityProvider",
+              list: "/IdentityProvider",
+              create: "/IdentityProvider/create",
+              edit: "/IdentityProvider/edit/:id",
+              show: "/IdentityProvider/show/:id",
+              meta: {
                 canDelete: true,
               },
             },
+            {
+              name: "JobRole",
+              list: "/JobRole",
+              create: "/JobRole/create",
+              edit: "/JobRole/edit/:id",
+              show: "/JobRole/show/:id",
+              meta: {
+                canDelete: false,
+              },
+            },
+            {
+              name: "JobRoleApplication",
+              list: "/JobRoleApplication",
+              create: "/JobRoleApplication/create",
+              edit: "/JobRoleApplication/edit/:id",
+              show: "/JobRoleApplication/show/:id",
+              meta: {
+                canDelete: false,
+              },
+            },
+            {
+              name: "JobRoleApplicationPermission",
+              list: "/JobRoleApplicationPermission",
+              create: "/JobRoleApplicationPermission/create",
+              edit: "/JobRoleApplicationPermission/edit/:id",
+              show: "/JobRoleApplicationPermission/show/:id",
+              meta: {
+                canDelete: false,
+              },
+            },
+            {
+              name: "Permission",
+              list: "/Permission",
+              create: "/Permission/create",
+              edit: "/Permission/edit/:id",
+              show: "/Permission/show/:id",
+              meta: {
+                canDelete: false,
+              },
+            },{
+              name: "User",
+              list: "/User",
+              create: "/User/create",
+              edit: "/User/edit/:id",
+              show: "/User/show/:id",
+              meta: {
+                canDelete: false,
+              },
+            },
+            {
+              name: "Setting",
+              list: "/settings",
+              create: "/Setting/create",
+              edit: "/settings/edit/:id",
+              show: "/settings/show/:id",
+              meta: {
+                canDelete: false,
+              },
+            },
+
             // {
             //   name: "blog_posts",
             //   list: "/blog-posts",

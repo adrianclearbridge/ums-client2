@@ -14,12 +14,11 @@ export const authProvider: AuthProvider = {
             "Content-Type": "application/json",
           }
       })
-      console.log(data)
 
       localStorage.setItem(TOKEN_KEY, data);
       return {
         success: true,
-        redirectTo: "/",
+        redirectTo: "/home",
       };
     }
 
@@ -56,9 +55,7 @@ export const authProvider: AuthProvider = {
     const token = localStorage.getItem(TOKEN_KEY);
     if (token) {
       return {
-        id: 1,
-        name: "John Doe",
-        avatar: "https://i.pravatar.cc/300",
+        token
       };
     }
     return null;
